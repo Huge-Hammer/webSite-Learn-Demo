@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+    website:
+        build: .
+        command: java -jar heron-0.0.1-SNAPSHOT.jar
+        volumes:
+            - "/home/dockerdata/website/log:log"
+            - "/home/dockerdata/website/picture:picture"
+        ports:
+            - "8087:8087"
+        depends_on:
+            - mysql
+    db:
+        image: mysql
+        container_name: db
+        ports:
+            - "3306:3306"
+        volumes:
+            - "/home/dockerdata/mysql/mysql:/var/lib/mysql"
+            - "/home/dockerdata/mysql/conf:/etc/mysql/conf.d"
+        
+

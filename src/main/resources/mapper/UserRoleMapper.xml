@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="website.lhc.heron.mapper.UserRoleInfoMapper">
+    <resultMap id="BaseResultMap" type="website.lhc.heron.model.UserRoleInfo">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="role_id" jdbcType="BIGINT" property="roleId"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <collection property="roleInfo" javaType="list" ofType="website.lhc.heron.model.RoleInfo">
+            <id property="id" column="id"/>
+            <result property="roleName" column="role_name"></result>
+        </collection>
+        <collection property="userInfo" javaType="list" ofType="website.lhc.heron.model.UserInfo">
+            <id property="id" column="id"/>
+            <result property="userName" column="user_name"></result>
+            <result property="account" column="account"></result>
+            <result property="createTime" column="create_time"></result>
+            <result property="updateTime" column="update_time"></result>
+        </collection>
+    </resultMap>
+
+    <select id="listUserRole" resultType="java.util.Map">
+        SELECT user_info.id,user_info.user_name,user_info.account,role_info.role_name,user_info.create_time,user_info.update_time
+        FROM user_info,user_role,role_info
+        WHERE user_info.id=user_role.user_id
+          AND role_info.id=user_role.role_id
+    </select>
+
+    <delete id="deleteUserRole" parameterType="java.lang.Long">
+         DELETE FROM user_role WHERE user_id=#{userId}
+    </delete>
+
+</mapper>

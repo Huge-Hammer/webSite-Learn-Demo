@@ -1,0 +1,110 @@
+body #hero {
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+    position: relative;
+    background: url("../img/background/team-bg.png") top center;
+    background-size: cover;
+    position: relative;
+    margin-bottom: -90px;
+  }
+  #hero #heroCarousel h3 {
+    color: #fff;
+  }
+  #hero #heroCarousel h4 {
+    position: absolute;
+    font-size: 18px;
+    font-weight: 400;
+    left: -68px;
+    color: #fff;
+  }
+  #hero #heroCarousel .title {
+    position: relative;
+    left: 950px;
+  }
+  body .lcteam {
+    padding: 20px 0 50px;
+    background-color:#f8f8f8;
+  } 
+  body .lcteam::before {
+    background-color: #f8f8f8;
+  }
+  .lcteam .list {
+    float: left;
+    width: 240px;
+    height: 500px;
+    padding: 0 10px;
+    background-color: #fff;
+
+    box-shadow: 0px 16px 32px 0px rgba(73, 101, 166, 0.08);
+    border-radius: 2px;
+  }
+  .lcteam .list .title {
+    padding: 25px;
+    font-weight: 700;
+    font-size: 16px;
+    border-bottom: #ebebeb solid 1px;
+  }
+  .lcteam .list .title img {
+    margin-right: 5px;
+    width: 14%;
+    height: 14%;
+  }
+  .lcteam .list li:before {
+    /*content: "\eaa0";*/
+    font-family: IcoFont;
+    padding-right: 14px;
+  }
+  .lcteam .list li {
+    padding: 0 34px;
+    margin: 20px 0;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .lcteam .list .focus {
+    color: #f7c259;
+  }
+  .lcteam .article {
+    float: left;
+    width: 1110px;
+    padding: 0 40px;
+    background-color: #fff;
+    display: none;
+    box-shadow: 0px 16px 32px 0px rgba(73, 101, 166, 0.08);
+    border-radius: 2px;
+    padding-bottom: 50px;
+  }
+  .lcteam .article .title {
+    font-size: 14px;
+    margin: 25px 0;
+  }
+  .lcteam .article ul li {
+      margin-bottom: 30px;
+  }
+  .lcteam .article ul li .pic {
+    height: 120px;
+    width: 104px;
+    float: left;
+    margin-right: 20px;
+  }
+  .lcteam .article ul li .text h4{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .lcteam .article ul li .text p {
+    font-size: 14px;
+  }
+
+  .lcteam .article h3{
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    line-height: 22px;
+  }
+
+  .lcteam .article p{
+    font-size: 14px;
+    line-height: 22px;
+    padding-bottom: 20px;
+  }

@@ -1,0 +1,159 @@
+body #hero {
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+    position: relative;
+    background: url("../img/sbg.png") top center;
+    background-size: cover;
+    position: relative;
+    margin-bottom: -90px;
+  }
+  #hero #heroCarousel h3 {
+    color: #fff;
+  }
+  #hero #heroCarousel h4 {
+    position: absolute;
+    font-size: 18px;
+    font-weight: 400;
+    left: -28px;
+    color: #fff;
+  }
+  #hero #heroCarousel .title {
+    position: relative;
+    left: 950px;
+  }
+  body .team {
+    padding: 20px 0;
+    background-color:#f8f8f8;
+  } 
+  body .team::before {
+    background-color: #f8f8f8;
+  }
+  .team .list {
+    float: left;
+    width: 240px;
+    height: 350px;
+    padding: 0 10px;
+    background-color: #fff;
+  }
+  .team .list .title {
+    padding: 25px;
+    font-weight: 700;
+    font-size: 16px;
+    border-bottom: #ebebeb solid 1px;
+  }
+  .team .list .title img {
+    margin-right: 5px;
+    width: 14%;
+    height: 14%;
+  }
+  .team .list li:before {
+    content: "\eaa0";
+    font-family: IcoFont;
+    padding-right: 14px;
+  }
+  .team .list li {
+    padding: 0 34px;
+    margin: 20px 0;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .team .list .focus {
+    color: #f7c259;
+  }
+  .team .article {
+    float: right;
+    width: 860px;
+    padding: 0 40px;
+    background-color: #fff;
+    display: none;
+  }
+  .team .article .title {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+  .team .article .news {
+      display: none;
+  }
+  .team .article li {
+      padding: 18px 0;
+      border-bottom: solid #eaeaea 1px;
+  }
+  .team .article li a {
+      color: black;
+  }
+  .team .article li a:hover {
+      color: #1875f0;
+  }
+  .article .page {
+    float: right;
+    margin-right: 30px;
+    font-size: 12px;
+  }
+  .article .page ul {
+    display: inline-block;
+  }
+  .article .page li {
+    display: inline-block;
+    line-height: 16px;
+    text-align: center;
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+  }
+  .article .page .focus {
+      background-color: #1875f0;
+      color: #fff;
+  }
+  .article .page li:hover {
+    /* color: #1875f0; */
+    cursor: pointer;
+  }
+  .article .page div {
+    display: inline-block;
+  }
+  .article .page .before::before {
+    content: "\ea9d";
+    font-family: IcoFont;
+    padding-right: 14px;
+    margin-right: -10px;
+  }
+  .article .page .after::after {
+    content: "\eaa0";
+    font-family: IcoFont;
+    padding-right: 14px;
+    margin-left: 4px;
+  }
+  .article .page .nav {
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+    border: #d9d9d9 1px solid;
+    margin-left: -8px;
+    padding-left: 6px;
+    margin-right: 14px;
+    border-radius: 3px;
+  }
+  .article .page input[type=number]::-webkit-inner-spin-button, 
+  .article .page input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0; 
+  }
+  .article .page input[type=number] {
+    -moz-appearance:textfield;
+  }
+  .article .page input {
+    position: relative;
+    top: -1px;
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    border: #d9d9d9 1px solid;
+    padding-left: 6px;
+    margin: 0 8px;
+    border-radius: 3px;
+    outline: none;
+  }
+  .article .page p {
+    display: inline-block;
+  }

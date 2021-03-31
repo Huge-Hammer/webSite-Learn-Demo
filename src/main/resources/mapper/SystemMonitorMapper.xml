@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="website.lhc.heron.mapper.SystemMonitorMapper">
+    <resultMap id="BaseResultMap" type="website.lhc.heron.model.SystemMonitor">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="cpu_core_count" jdbcType="INTEGER" property="cpuCoreCount"/>
+        <result column="cpu_sys_usage" jdbcType="VARCHAR" property="cpuSysUsage"/>
+        <result column="cpu_user_usage" jdbcType="VARCHAR" property="cpuUserUsage"/>
+        <result column="cpu_wait_usage" jdbcType="VARCHAR" property="cpuWaitUsage"/>
+        <result column="cpu_usage" jdbcType="VARCHAR" property="cpuUsage"/>
+        <result column="memory_total" jdbcType="BIGINT" property="memoryTotal"/>
+        <result column="memory_used" jdbcType="BIGINT" property="memoryUsed"/>
+        <result column="memory_available" jdbcType="BIGINT" property="memoryAvailable"/>
+        <result column="memory_usage" jdbcType="VARCHAR" property="memoryUsage"/>
+        <result column="jvm_memory_total" jdbcType="BIGINT" property="jvmMemoryTotal"/>
+        <result column="jvm_memory_used" jdbcType="BIGINT" property="jvmMemoryUsed"/>
+        <result column="jvm_memory_avaliable" jdbcType="BIGINT" property="jvmMemoryAvaliable"/>
+        <result column="jvm_memory_usage" jdbcType="VARCHAR" property="jvmMemoryUsage"/>
+        <result column="java_version" jdbcType="VARCHAR" property="javaVersion"/>
+        <result column="os_name" jdbcType="VARCHAR" property="osName"/>
+        <result column="os_arch" jdbcType="VARCHAR" property="osArch"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+    </resultMap>
+    <select id="getLastMonitor" resultMap="BaseResultMap">
+        SELECT * FROM `system_monitor` WHERE java_version=#{javaVersion} ORDER BY create_time DESC LIMIT 1
+  </select>
+    <select id="listMemoryCharts" resultType="java.util.Map">
+        SELECT create_time AS x,memory_used AS y FROM `system_monitor` WHERE java_version=#{javaVersion} ORDER BY  id DESC LIMIT 50
+    </select>
+    <select id="getMemoryInfo" parameterType="java.lang.String" resultType="java.util.Map">
+        SELECT memory_available AS available, memory_used AS used FROM system_monitor WHERE java_version=#{javaVersion} ORDER BY id DESC LIMIT 1
+    </select>
+    <select id="listJvmMemoryCharts" resultType="java.util.Map">
+        SELECT create_time AS x,jvm_memory_used AS y FROM `system_monitor` WHERE java_version=#{javaVersion} ORDER BY  id DESC LIMIT 50
+    </select>
+    <select id="getJvmMemoryInfo" parameterType="java.lang.String" resultType="java.util.Map">
+        SELECT jvm_memory_avaliable AS available, jvm_memory_used AS used FROM system_monitor WHERE java_version=#{javaVersion} ORDER BY id DESC LIMIT 1
+    </select>
+</mapper>

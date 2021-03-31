@@ -1,0 +1,85 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.20.0.72:3306/website_product?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+  thymeleaf:
+    cache: false
+    suffix: .html
+    encoding: utf-8
+  jackson:
+    time-zone: GMT+8
+    locale: zh_CN
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+      file-size-threshold: 50MB
+      location: F:\webfile
+  quartz:
+    #相关属性配置
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: clusteredScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: true
+            clusterCheckinInterval: 10000
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+    #数据库方式
+    job-store-type: jdbc
+    #初始化表结构
+    jdbc:
+      initialize-schema: always
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: webiste.lhc.heron.model
+  mail:
+    host: smtp.qq.com
+    username: 22222@qq.com
+    password: inhlmdfqmlqfbfaf
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+logging:
+  level:
+    webiste:
+      lhc:
+        heron: debug
+mybatis:
+  base-packages: webiste.lhc.heron.model
+  mapper-locations: classpath:mapper/*.xml
+
+
+gaode:
+  appkey: 1111111
+  ipInfo:
+    url: https://restapi.amap.com/v3/ip
+  weather:
+    url: https://restapi.amap.com/v3/weather/weatherInfo
+
+local:
+  file:
+    #Linux服务器,centos系统，/home/用户名/LcWebsite/uploadResources/
+    dir: /file/
+    #Window路径
+#    dir: F:/LcWebsite/target/classes/static/page/assets/img/resource/

@@ -1,0 +1,8 @@
+#newsData p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /*首页新闻显示行数限制*/
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

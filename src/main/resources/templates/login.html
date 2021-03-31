@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title> 登录 </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <meta name="msapplication-TileColor" content="#206bc4"/>
+    <meta name="theme-color" content="#206bc4"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <meta name="robots" content="noindex,nofollow,noarchive"/>
+    <link th:href="@{/dist/css/tabler.min.css}" rel="stylesheet"/>
+    <link th:href="@{/dist/css/demo.min.css}" rel="stylesheet"/>
+    <style>
+        body {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased border-top-wide border-primary d-flex flex-column">
+
+<div class="flex-fill d-flex flex-column justify-content-center">
+    <!--登录错误信息回显-->
+    <div id="Info" style="text-align: center" class="alert alert-warning alert-dismissible" role="alert" th:if="${session.loginError} != null">
+        <span th:text="${session.loginError}"></span>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    </div>
+
+    <div class="container-tight py-6">
+        <div class="text-center mb-4">
+            <a style="font-size:32px;" >蓝创官网后台管理系统</a>
+        </div>
+        <form class="card card-md" action="/login" method="post">
+            <div class="card-body">
+                <h2 class="mb-5 text-center">用户登录</h2>
+                <div class="mb-3">
+                    <label class="form-label">账户名</label>
+                    <input type="text" class="form-control account" name="account" placeholder="请输入用户名"
+                           autocomplete="off">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">
+                        密码
+                        <span class="form-label-description">
+<!--                  <a href="/forgetPassword">忘记密码</a>-->
+                </span>
+                    </label>
+                    <div class="input-group input-group-flat">
+                        <input id="password" type="password" class="form-control password" placeholder="请输入密码" name="password">
+                        <span class="input-group-text">
+                  <a href="javascript:psShow()" class="link-secondary" title="显示密码" data-toggle="tooltip"><svg
+                          xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                          stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="2"/><path
+                          d="M2 12l1.5 2a11 11 0 0 0 17 0l1.5 -2"/><path d="M2 12l1.5 -2a11 11 0 0 1 17 0l1.5 2"/></svg>
+                  </a>
+                </span>
+                    </div>
+                </div>
+<!--                <div class="mb-2">-->
+<!--                    <label class="form-check">-->
+<!--                        <input type="checkbox" class="form-check-input"/>-->
+<!--                        <span class="form-check-label">记住我</span>-->
+<!--                    </label>-->
+<!--                </div>-->
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary btn-block singIn">登 录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Libs JS -->
+<script src="./dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"
+        th:src="@{/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+<!-- Tabler Core -->
+<script src="./dist/js/tabler.min.js" th:src="@{/dist/js/tabler.min.js}"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    document.body.style.display = "block";
+    var isShow = true;
+    function psShow(){
+        var ps = document.getElementById("password");
+        if(isShow){
+            ps.type = "text";
+            isShow = false;
+        }else {
+            ps.type = "password";
+            isShow = true;
+        }
+    }
+    setTimeout("document.getElementById('Info').style.display = 'none';", 3000)
+</script>
+</body>
+</html>

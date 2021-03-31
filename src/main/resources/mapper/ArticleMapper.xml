@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="website.lhc.heron.mapper.ArticleMapper">
+    <resultMap id="BaseResultMap" type="website.lhc.heron.model.Article">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="article_name" jdbcType="VARCHAR" property="articleName"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+    </resultMap>
+    <select id="getNewsList" resultType="java.util.Map" >
+        SELECT * FROM `article` WHERE article_type='新闻资讯' ORDER BY id DESC
+    </select>
+    <select id="getRecruitmentList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='招聘信息' ORDER BY id DESC
+    </select>
+    <select id="getSolutionCaseList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='解决方案-典型案例' ORDER BY id DESC
+    </select>
+    <select id="getSolutionWaterList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='解决方案-水环境' ORDER BY id DESC
+    </select>
+    <select id="getSolutionGasList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='解决方案-气环境' ORDER BY id DESC
+    </select>
+    <select id="getSolutionSecurityList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='解决方案-安全服务' ORDER BY id DESC
+    </select>
+    <select id="getSolutionSOList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='解决方案-服务与运营' ORDER BY id DESC
+    </select>
+    <select id="getServiceSquirrelList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='产品与服务-squirrel云平台' ORDER BY id DESC
+    </select>
+    <select id="getServiceWaterList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='产品与服务-环境监测仪器-水环境' ORDER BY id DESC
+    </select>
+    <select id="getServiceGasList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='产品与服务-环境监测仪器-气环境' ORDER BY id DESC
+    </select>
+    <select id="getServiceSecurityList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='产品与服务-环境监测仪器-安全服务' ORDER BY id DESC
+    </select>
+    <select id="getServiceTerminalList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='产品与服务-通用智能终端' ORDER BY id DESC
+    </select>
+    <select id="getServiceThirdPartyList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type='产品与服务-第三方服务' ORDER BY id DESC
+    </select>
+    <select id="getSolutionList" resultType="java.util.Map">
+        SELECT * FROM `article` WHERE article_type LIKE '解决方案%' ORDER BY id DESC
+    </select>
+
+
+</mapper>
